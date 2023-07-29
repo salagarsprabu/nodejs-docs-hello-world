@@ -72,3 +72,28 @@ stages:
               runtimeStack: 'NODE|16-lts'
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
               startUpCommand: 'npm run start'
+- stage: Test
+  displayName: 'Deploy to the Test environment'
+  dependsOn: Dev
+  condition: succeeded()
+  jobs:
+  - deployment: Deploy
+    displayName: Deploy
+    environment: test
+    variables:
+    - group: Release
+    pool:
+      vmImage: $(vmImageName)
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: AzureWebApp@1
+            displayName: 'Azure Web App Deploy: helloworld-nodejs-27869'
+            inputs:
+              azureSubscription: $(azureSubscription)
+              appType: webAppLinux
+              appName: $(WebAppNameTest)
+              runtimeStack: 'NODE|16-lts'
+              package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
+              startUpCommand: 'npm run start'
