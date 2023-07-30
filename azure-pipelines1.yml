@@ -13,7 +13,8 @@ variables:
 
   # Agent VM image name
   # vmImageName: 'ubuntu-latest'
-  
+
+stages:
 - template: templates/stg.yml  # Template reference
   parameters:
     name: 'build'
