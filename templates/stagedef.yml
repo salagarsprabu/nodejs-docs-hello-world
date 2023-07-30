@@ -3,6 +3,7 @@ parameters:
   env: ''
   agentname: 'ubuntu-latest'
   azureSubscription: 'f0ef7336-47e7-4bc0-93f3-0494139f5600'
+  appname: ''
 
 stages:
 
@@ -27,7 +28,7 @@ stages:
             inputs:
               azureSubscription: $(azureSubscription)
               appType: webAppLinux
-              appName: $(WebAppNameDev)
+              appName: ${{ parameters.appname }}
               runtimeStack: 'NODE|16-lts'
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
               startUpCommand: 'npm run start'
