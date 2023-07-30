@@ -24,14 +24,16 @@ stages:
   parameters:
     name: 'dev'
     env: 'dev'
+    appName: $(WebAppNameDev)
 
 - template: templates/stagedef.yml  # Template reference
   parameters:
     name: 'Test'
     env: 'test'
-
+    appName: $(WebAppNameTest)
 
 - template: templates/stagedef.yml  # Template reference
   parameters:
     name: 'Stage'
     env: 'stage'
+    appName: $(WebAppNameStage)
