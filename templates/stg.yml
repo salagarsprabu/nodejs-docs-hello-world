@@ -1,7 +1,7 @@
 # File: templates/stg.yml
 parameters:
   name: ''
-  vmImageName: ''
+  agentname: ''
 stages:
 - stage: ${{ parameters.name }}
   displayName: Build stage
@@ -9,7 +9,7 @@ stages:
   - job: Build
     displayName: Build
     pool:
-      vmImage: ${{ parameters.vmImageName }}
+      vmImage: ${{ parameters.agentname }}
 
     steps:
     - task: NodeTool@0
