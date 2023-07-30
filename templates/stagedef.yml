@@ -4,12 +4,13 @@ parameters:
   agentname: 'ubuntu-latest'
   azureSubscription: 'f0ef7336-47e7-4bc0-93f3-0494139f5600'
   appname: ''
+  depend: ''
 
 stages:
 
 - stage: ${{ parameters.name }}
-  displayName: 'Deploy to the dev environment'
-  dependsOn: Build
+  displayName: 'Deploy to the ${{ parameters.name }} environment'
+  dependsOn: ${{ parameters.depend }}
   condition: succeeded()
   jobs:
   - deployment: Deploy
