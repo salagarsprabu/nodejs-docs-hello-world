@@ -19,3 +19,8 @@ stages:
   parameters:
     name: 'build'
     agentname: 'ubuntu-latest'
+
+- template: templates/stagedef.yml  # Template reference
+  parameters:
+    name: 'dev'
+    env: 'dev'
