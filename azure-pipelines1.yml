@@ -27,11 +27,11 @@ stages:
 
 - template: templates/stagedef.yml  # Template reference
   parameters:
-    name: 'test'
+    name: 'Test'
     env: 'test'
 
 
 - template: templates/stagedef.yml  # Template reference
   parameters:
-    name: 'stage'
+    name: 'Stage'
     env: 'stage'
