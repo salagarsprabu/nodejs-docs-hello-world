@@ -24,3 +24,14 @@ stages:
   parameters:
     name: 'dev'
     env: 'dev'
+
+- template: templates/stagedef.yml  # Template reference
+  parameters:
+    name: 'test'
+    env: 'test'
+
+
+- template: templates/stagedef.yml  # Template reference
+  parameters:
+    name: 'stage'
+    env: 'stage'
